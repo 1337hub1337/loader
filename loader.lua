@@ -1,5 +1,13 @@
 local GAMES = {
+	[8356562067] = { "Indo Voice", "https://api.jnkie.com/api/v1/luascripts/public/8389ebc255af53e7e510d0b6b3a4408cf647691f7ca35a3dd5263ba0b8b6c9c2/download", nil },
+	[9788848685] = { "Indohangot", "https://api.jnkie.com/api/v1/luascripts/public/a6a7eea2c9344af388eb0c8871544b59e00f43231f932c55f102919506362dc2/download", "KEYLESS" },
+	[128736949265057] = { "Gakuran", "https://api.jnkie.com/api/v1/luascripts/public/9f06db6f4416c45f59b8d7df7f051043ca050fcd113b26e66f1707ccb51d7651/download", "KEYLESS" },
+	[125927821145949] = { "Mine a Mountain", "https://api.jnkie.com/api/v1/luascripts/public/93d6de465112864e06a3dfdcb08e5351aa08b74b46a8f8d219771b1ff934fa66/download", "KEYLESS" },
+	[137233438285284] = { "Chicken Farm", "https://api.jnkie.com/api/v1/luascripts/public/5ea054f5e9fee54780ba6c178172ae0e1080e750b2f3598b099b2bdeeda9d4ff/download", "KEYLESS" },
 	[128784467030899] = { "Merge a Nuke!", "https://api.jnkie.com/api/v1/luascripts/public/a110766c7bd5ed95482a4163317711d7655ae41eae3f7b1cac2cc040a5c15906/download", "KEYLESS" },
+	[115681808123944] = { "Throw a Coin", "https://api.jnkie.com/api/v1/luascripts/public/07b7ae726719e5de5522a393043310a12e8d057a688846430d01705f9c07bf87/download", "KEYLESS" },
+	[83038462357724] = { "Dig & Clean", "https://api.jnkie.com/api/v1/luascripts/public/6ad58afa8a8dc632299c069f5718afc31d2d1f45c940a114e54340e2a9e57304/download", "KEYLESS" },
+	[107778070777162] = { "Steal An Egg", "https://api.jnkie.com/api/v1/luascripts/public/a8ad4dd6a9cac6965c930d04a43d2b433af52e2a4fb84f6e89a20c88165a4771/download", "KEYLESS" },
 }
 
 local currentGame = GAMES[game.PlaceId]
