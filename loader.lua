@@ -61,17 +61,40 @@ _G._1337Loader_AllConns = AllConns
 
 --=========================================================================
 -- SCRIPT DATABASE
--- Isi URL script lo di sini per game
--- Format: [PlaceId] = { name, scripts = { {name, url} } }
+-- Script disimpan di GitHub, loader fetch otomatis via BASE_URL
+--=========================================================================
+local BASE_URL = "https://raw.githubusercontent.com/1337hub1337/loader/refs/heads/main/"
+
+-- Helper: bikin full URL dari path relatif
+-- Contoh: scriptURL("indovoice/speed.lua") → BASE_URL .. "indovoice/speed.lua"
+local function scriptURL(path)
+    return BASE_URL .. path
+end
+
+--=========================================================================
+-- SCRIPT DATABASE
+-- Tambahin game di sini. Script URL otomatis ngarah ke repo GitHub lo.
+-- Struktur folder di repo:
+--   scripts/namagame/namascript.lua
+--
+-- [PlaceId] = {
+--     name = "Nama Game",
+--     status = "updated" / "testing" / "outdated",
+--     scripts = {
+--         { name = "Nama Script", path = "scripts/namagame/namascript.lua" },
+--     },
+-- },
 --=========================================================================
 local ScriptDB = {
-    -- Tambahin game lo di sini, format:
-    --
-    -- [PlaceId] = {
-    --     name = "Nama Game",
-    --     status = "updated",  -- "updated" / "testing" / "outdated"
+
+    -- Contoh (hapus/ganti sesuai game lo):
+    -- [123456789] = {
+    --     name = "Indovoice",
+    --     status = "updated",
     --     scripts = {
-    --         { name = "Nama Script", url = "https://raw.githubusercontent.com/..." },
+    --         { name = "Auto Farm",  path = "scripts/indovoice/autofarm.lua" },
+    --         { name = "Teleport",   path = "scripts/indovoice/teleport.lua" },
+    --         { name = "ESP",        path = "scripts/indovoice/esp.lua" },
     --     },
     -- },
 
@@ -776,10 +799,10 @@ local function buildContent()
                     stroke(sRow, Theme.Good, 1, 0.5)
                     notify("Loaded: " .. scriptData.name, Theme.Good)
 
-                    -- Execute the actual script
-                    if scriptData.url and scriptData.url ~= "" then
+                    -- Execute the actual script from GitHub
+                    if scriptData.path and scriptData.path ~= "" then
                         pcall(function()
-                            loadstring(game:HttpGet(scriptData.url))()
+                            loadstring(game:HttpGet(scriptURL(scriptData.path)))()
                         end)
                     end
                 end)
@@ -823,11 +846,11 @@ local function buildContent()
                 tween(execAllBtn, 0.25, {BackgroundColor3 = Theme.Good})
                 notify("All " .. #CurrentGame.scripts .. " scripts loaded!", Theme.Good)
 
-                -- Execute all scripts
+                -- Execute all scripts from GitHub
                 for _, s in ipairs(CurrentGame.scripts) do
-                    if s.url and s.url ~= "" then
+                    if s.path and s.path ~= "" then
                         pcall(function()
-                            loadstring(game:HttpGet(s.url))()
+                            loadstring(game:HttpGet(scriptURL(s.path)))()
                         end)
                     end
                 end
