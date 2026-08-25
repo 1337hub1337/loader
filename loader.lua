@@ -33,7 +33,7 @@ else
     warn("[1337 Hub] Script not available for this game (PlaceId: " .. game.PlaceId .. ")")
 
     -- On-screen notification
-    pcall(function()
+    task.spawn(function()
         local Players = game:GetService("Players")
         local TweenService = game:GetService("TweenService")
         local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -42,60 +42,77 @@ else
         gui.Name = "1337Hub_Notify"
         gui.ResetOnSpawn = false
         gui.IgnoreGuiInset = true
-        gui.DisplayOrder = 999
-        pcall(function() gui.Parent = (gethui and gethui()) or PlayerGui end)
-        if not gui.Parent then gui.Parent = PlayerGui end
+        gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        gui.DisplayOrder = 999999
+
+        -- Try multiple parents
+        local success = false
+        for _, parent in ipairs({
+            gethui and gethui(),
+            game:GetService("CoreGui"),
+            PlayerGui,
+        }) do
+            if parent then
+                local ok = pcall(function() gui.Parent = parent end)
+                if ok and gui.Parent then success = true break end
+            end
+        end
+        if not success then return end
 
         local frame = Instance.new("Frame")
-        frame.Size = UDim2.new(0, 260, 0, 60)
+        frame.Size = UDim2.new(0, 280, 0, 65)
         frame.AnchorPoint = Vector2.new(0.5, 0)
-        frame.Position = UDim2.new(0.5, 0, 0, -70)
+        frame.Position = UDim2.new(0.5, 0, 0, 20)
         frame.BackgroundColor3 = Color3.fromRGB(13, 10, 22)
+        frame.BackgroundTransparency = 0
         frame.BorderSizePixel = 0
+        frame.ZIndex = 100
         frame.Parent = gui
+
         local c = Instance.new("UICorner")
         c.CornerRadius = UDim.new(0, 10)
         c.Parent = frame
+
         local s = Instance.new("UIStroke")
         s.Color = Color3.fromRGB(255, 155, 55)
         s.Thickness = 1.5
         s.Transparency = 0.3
+        s.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
         s.Parent = frame
 
-        local title = Instance.new("TextLabel")
-        title.Size = UDim2.new(1, -20, 0, 20)
-        title.Position = UDim2.new(0, 10, 0, 8)
-        title.BackgroundTransparency = 1
-        title.Text = "1337 Hub"
-        title.TextColor3 = Color3.fromRGB(139, 92, 246)
-        title.Font = Enum.Font.GothamBold
-        title.TextSize = 13
-        title.TextXAlignment = Enum.TextXAlignment.Left
-        title.Parent = frame
+        local titleLbl = Instance.new("TextLabel")
+        titleLbl.Size = UDim2.new(1, -20, 0, 22)
+        titleLbl.Position = UDim2.new(0, 10, 0, 8)
+        titleLbl.BackgroundTransparency = 1
+        titleLbl.Text = "1337 Hub"
+        titleLbl.TextColor3 = Color3.fromRGB(139, 92, 246)
+        titleLbl.Font = Enum.Font.GothamBold
+        titleLbl.TextSize = 14
+        titleLbl.TextXAlignment = Enum.TextXAlignment.Left
+        titleLbl.ZIndex = 101
+        titleLbl.Parent = frame
 
-        local msg = Instance.new("TextLabel")
-        msg.Size = UDim2.new(1, -20, 0, 18)
-        msg.Position = UDim2.new(0, 10, 0, 30)
-        msg.BackgroundTransparency = 1
-        msg.Text = "Script not available for this game."
-        msg.TextColor3 = Color3.fromRGB(240, 238, 255)
-        msg.Font = Enum.Font.GothamMedium
-        msg.TextSize = 11
-        msg.TextXAlignment = Enum.TextXAlignment.Left
-        msg.Parent = frame
+        local msgLbl = Instance.new("TextLabel")
+        msgLbl.Size = UDim2.new(1, -20, 0, 18)
+        msgLbl.Position = UDim2.new(0, 10, 0, 33)
+        msgLbl.BackgroundTransparency = 1
+        msgLbl.Text = "Script not available for this game."
+        msgLbl.TextColor3 = Color3.fromRGB(240, 238, 255)
+        msgLbl.Font = Enum.Font.GothamMedium
+        msgLbl.TextSize = 12
+        msgLbl.TextXAlignment = Enum.TextXAlignment.Left
+        msgLbl.ZIndex = 101
+        msgLbl.Parent = frame
 
-        -- Slide in
-        TweenService:Create(frame, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
-            Position = UDim2.new(0.5, 0, 0, 20)
-        }):Play()
-
-        -- Slide out & destroy
-        task.delay(4, function()
-            TweenService:Create(frame, TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
-                Position = UDim2.new(0.5, 0, 0, -70)
-            }):Play()
-            task.wait(0.35)
-            gui:Destroy()
+        -- Auto destroy after 4 seconds
+        task.wait(4)
+        pcall(function()
+            TweenService:Create(frame, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
+            TweenService:Create(s, TweenInfo.new(0.3), {Transparency = 1}):Play()
+            TweenService:Create(titleLbl, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+            TweenService:Create(msgLbl, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
         end)
+        task.wait(0.4)
+        gui:Destroy()
     end)
 end
