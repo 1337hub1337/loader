@@ -31,4 +31,11 @@ if currentGame then
     loadstring(game:HttpGet(scriptURL))()
 else
     warn("[1337 Hub] Script not available for this game (PlaceId: " .. game.PlaceId .. ")")
+    pcall(function()
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "1337 Hub",
+            Text = "Script not available for this game.",
+            Duration = 5,
+        })
+    end)
 end
