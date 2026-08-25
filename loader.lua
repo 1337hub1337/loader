@@ -41,7 +41,7 @@ else
         local gui = Instance.new("ScreenGui")
         gui.Name = "1337Hub_Notify"
         gui.ResetOnSpawn = false
-        gui.IgnoreGuiInset = true
+        gui.IgnoreGuiInset = false
         gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
         gui.DisplayOrder = 999999
 
@@ -61,8 +61,8 @@ else
 
         local frame = Instance.new("Frame")
         frame.Size = UDim2.new(0, 280, 0, 65)
-        frame.AnchorPoint = Vector2.new(0.5, 0)
-        frame.Position = UDim2.new(0.5, 0, 0, 20)
+        frame.AnchorPoint = Vector2.new(0.5, 0.5)
+        frame.Position = UDim2.new(0.5, 0, 0.5, 0)
         frame.BackgroundColor3 = Color3.fromRGB(13, 10, 22)
         frame.BackgroundTransparency = 0
         frame.BorderSizePixel = 0
@@ -104,8 +104,8 @@ else
         msgLbl.ZIndex = 101
         msgLbl.Parent = frame
 
-        -- Auto destroy after 4 seconds
-        task.wait(4)
+        -- Auto destroy after 10 seconds
+        task.wait(10)
         pcall(function()
             TweenService:Create(frame, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
             TweenService:Create(s, TweenInfo.new(0.3), {Transparency = 1}):Play()
