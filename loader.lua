@@ -6,6 +6,7 @@ local GAMES = {
 	[137233438285284] = { "Chicken Farm", "https://api.jnkie.com/api/v1/luascripts/public/5ea054f5e9fee54780ba6c178172ae0e1080e750b2f3598b099b2bdeeda9d4ff/download", "KEYLESS" },
 	[128784467030899] = { "Merge a Nuke!", "https://api.jnkie.com/api/v1/luascripts/public/a110766c7bd5ed95482a4163317711d7655ae41eae3f7b1cac2cc040a5c15906/download", "KEYLESS" },
 	[115681808123944] = { "Throw a Coin", "https://api.jnkie.com/api/v1/luascripts/public/07b7ae726719e5de5522a393043310a12e8d057a688846430d01705f9c07bf87/download", "KEYLESS" },
+	[72042130041700] = { "Throw a Coin", "https://api.jnkie.com/api/v1/luascripts/public/07b7ae726719e5de5522a393043310a12e8d057a688846430d01705f9c07bf87/download", "KEYLESS" },
 	[83038462357724] = { "Dig & Clean", "https://api.jnkie.com/api/v1/luascripts/public/6ad58afa8a8dc632299c069f5718afc31d2d1f45c940a114e54340e2a9e57304/download", "KEYLESS" },
 	[107778070777162] = { "Steal An Egg", "https://api.jnkie.com/api/v1/luascripts/public/a8ad4dd6a9cac6965c930d04a43d2b433af52e2a4fb84f6e89a20c88165a4771/download", "KEYLESS" },
 }
