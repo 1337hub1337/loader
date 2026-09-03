@@ -9,7 +9,7 @@ local GAMES = {
 	[72042130041700] = { "Throw a Coin", "https://api.jnkie.com/api/v1/luascripts/public/07b7ae726719e5de5522a393043310a12e8d057a688846430d01705f9c07bf87/download", "KEYLESS" },
 	[83038462357724] = { "Dig & Clean", "https://api.jnkie.com/api/v1/luascripts/public/6ad58afa8a8dc632299c069f5718afc31d2d1f45c940a114e54340e2a9e57304/download", "KEYLESS" },
 	[107778070777162] = { "Steal An Egg", "https://api.jnkie.com/api/v1/luascripts/public/a8ad4dd6a9cac6965c930d04a43d2b433af52e2a4fb84f6e89a20c88165a4771/download", "KEYLESS" },
-	[94640181989498] = { "Grow a Chicken Fighter", "https://gist.githubusercontent.com/1337hub1337/c8c774216c2e0da5947fbca14b9345f3/raw/ae79e32a08df2194c2cc36c73f9eac8487cacad7/gacf.lua", nil },
+	[94640181989498] = { "Grow a Chicken Fighter", "https://gist.githubusercontent.com/1337hub1337/65bc32fe53fd85624a3a664e60ef912d/raw/b8ef3f681e0a1c2ef000ddff75865afeaba09350/gacf.lua", nil },
 	[124293095895786] = { "Stream A Cheese Pull!", "https://api.jnkie.com/api/v1/luascripts/public/e198f14ce9b7b0fd092a9f816f3bf3fe7d014b89d44978ade993aebaaea56cfc/download", "KEYLESS" },
 }
 
