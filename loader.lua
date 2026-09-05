@@ -1,5 +1,6 @@
 local GAMES = {
 	[8356562067] = { "Indo Voice", "https://api.jnkie.com/api/v1/luascripts/public/8389ebc255af53e7e510d0b6b3a4408cf647691f7ca35a3dd5263ba0b8b6c9c2/download", nil },
+	[107778070777162] = { "Steal An Egg", "https://gist.githubusercontent.com/1337hub1337/3f556460214ff31821f0de00b569aa2b/raw/sae.lua", nil },
 	[94640181989498] = { "Grow a Chicken Fighter", "https://gist.githubusercontent.com/1337hub1337/dd53c1fe4509f0a7d03510753d4184ea/raw/gacf.lua", nil },
 	[9788848685] = { "Indohangot", "https://api.jnkie.com/api/v1/luascripts/public/a6a7eea2c9344af388eb0c8871544b59e00f43231f932c55f102919506362dc2/download", "KEYLESS" },
 	[128736949265057] = { "Gakuran", "https://api.jnkie.com/api/v1/luascripts/public/9f06db6f4416c45f59b8d7df7f051043ca050fcd113b26e66f1707ccb51d7651/download", "KEYLESS" },
@@ -9,7 +10,6 @@ local GAMES = {
 	[115681808123944] = { "Throw a Coin", "https://api.jnkie.com/api/v1/luascripts/public/07b7ae726719e5de5522a393043310a12e8d057a688846430d01705f9c07bf87/download", "KEYLESS" },
 	[72042130041700] = { "Throw a Coin", "https://api.jnkie.com/api/v1/luascripts/public/07b7ae726719e5de5522a393043310a12e8d057a688846430d01705f9c07bf87/download", "KEYLESS" },
 	[83038462357724] = { "Dig & Clean", "https://api.jnkie.com/api/v1/luascripts/public/6ad58afa8a8dc632299c069f5718afc31d2d1f45c940a114e54340e2a9e57304/download", "KEYLESS" },
-	[107778070777162] = { "Steal An Egg", "https://api.jnkie.com/api/v1/luascripts/public/a8ad4dd6a9cac6965c930d04a43d2b433af52e2a4fb84f6e89a20c88165a4771/download", "KEYLESS" },
 	[124293095895786] = { "Stream A Cheese Pull!", "https://api.jnkie.com/api/v1/luascripts/public/e198f14ce9b7b0fd092a9f816f3bf3fe7d014b89d44978ade993aebaaea56cfc/download", "KEYLESS" },
 	[13772394625] = { "Blade Ball", "https://api.jnkie.com/api/v1/luascripts/public/f93f3f3cbfe891b6fa6a59b6c6bca19f12f38bb141335fad859adfcbc0cc433c/download", "KEYLESS" },
 }
