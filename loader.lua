@@ -12,6 +12,7 @@ local GAMES = {
 	[94640181989498] = { "Grow a Chicken Fighter", "https://gist.githubusercontent.com/1337hub1337/dd53c1fe4509f0a7d03510753d4184ea/raw/gacf.lua", nil },
 	[124293095895786] = { "Stream A Cheese Pull!", "https://api.jnkie.com/api/v1/luascripts/public/e198f14ce9b7b0fd092a9f816f3bf3fe7d014b89d44978ade993aebaaea56cfc/download", "KEYLESS" },
 	[13772394625] = { "Blade Ball", "https://api.jnkie.com/api/v1/luascripts/public/f93f3f3cbfe891b6fa6a59b6c6bca19f12f38bb141335fad859adfcbc0cc433c/download", "KEYLESS" },
+	[74102906764176] = { "Greedy Growers", "https://api.jnkie.com/api/v1/luascripts/public/0efe18360557dbea67257be3a0310b39dbd00638029fcff57d4d155a5a7e9c18/download", "KEYLESS" },
 }
 
 local currentGame = GAMES[game.PlaceId]
